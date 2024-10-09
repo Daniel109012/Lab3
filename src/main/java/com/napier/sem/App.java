@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class App
 {
+
     /**
      * Connection to MySQL database.
      */
@@ -51,36 +52,37 @@ public class App
             }
         }
 
-        /**
-         * Disconnect from the MySQL database.
-         */
-        public void disconnect()
+    }
+
+    /**
+     * Disconnect from the MySQL database.
+     */
+    public void disconnect()
+    {
+        if (con != null)
         {
-            if (con != null)
+            try
             {
-                try
-                {
-                    // Close connection
-                    con.close();
-                }
-                catch (Exception e)
-                {
-                    System.out.println("Error closing connection to database");
-                }
+                // Close connection
+                con.close();
+            }
+            catch (Exception e)
+            {
+                System.out.println("Error closing connection to database");
             }
         }
-
-       // if (con != null)
-       // {
-        //    try
-       //     {
-                // Close connection
-        //        con.close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        System.out.println("Error closing connection to database");
-        //    }
-       // }
     }
+
+    public static void main(String[] args)
+    {
+        // Create new Application
+        App a = new App();
+
+        // Connect to database
+        a.connect();
+
+        // Disconnect from database
+        a.disconnect();
+    }
+
 }
