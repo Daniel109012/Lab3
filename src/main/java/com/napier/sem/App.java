@@ -1,7 +1,6 @@
 package com.napier.sem;
 
 import java.sql.*;
-import com.napier.sem.Employee;
 
 public class App
 {
